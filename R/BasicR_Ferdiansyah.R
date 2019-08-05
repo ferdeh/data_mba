@@ -1,19 +1,28 @@
 batas <- function (){
-  print ('')
+  cat ('\n')
   print ('############################################################################')
 }
 
+nama_tbl <-function(file){
+  url_extrak <- strsplit(file,'/')
+  nama_table<- url_extrak[[1]][length(url_extrak[[1]])]
+  return(nama_table)
+}
 
 cektable <- function(file){
+  batas()
   df<- read.csv(file, header = TRUE, sep = ",", quote = "\"", dec = ".", fill = TRUE, comment.char = "")
+  print(paste('Nama Tabel', nama_tbl(file)))
   print (' soal no 01. ukuran table')
   print(paste('banyaknya baris adalah', dim.data.frame(df)[1] ))
   print(paste('banyaknya kolom adalah', dim.data.frame(df)[2] ))
+  cat ('\n')
   print (' soal no 02. Nama Kolom')
   print(colnames(df))
+  cat ('\n')
   print (' soal no 03. Type data tiap Nama Kolom')
   print (sapply(df, class))
-  batas()
+  
   
 }
 
