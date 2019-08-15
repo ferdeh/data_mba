@@ -4,6 +4,11 @@ output: html_notebook
 ---
 
 
+# Load library
+library(tidyverse)
+library(corrgram)
+library(corrplot)
+##############
 
 # Exercise 1
 
